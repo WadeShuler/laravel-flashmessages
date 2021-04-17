@@ -1,0 +1,8 @@
+.idea
+.vscode
+/vendor
+composer.lock
+/phpunit.xml
+.phpunit.result.cache
+_notes.txt
+bak__*
