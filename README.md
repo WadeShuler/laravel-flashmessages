@@ -4,6 +4,14 @@ Add flash messages (alerts) to your Laravel project. Supports Tailwind v2, Boots
 
 This was built and tested on Laravel 8. So far it has not been tested on Laravel 7. If you try it, please let me know how it goes so I can update this readme :)
 
+## Screenshots
+
+### Laravel 8 with Breeze and Tailwind v2
+![](.github/images/ScreenShot-Laravel-8-Breeze-Tailwind-v2.png)
+
+### Laravel 8 with [AdminLTE](https://github.com/jeroennoten/Laravel-AdminLTE) and Bootstrap v4
+![](.github/images/ScreenShot-AdminLTE-Bootstrap-v4.png)
+
 ## Table of Contents
 
  - [Warning](#warning)
