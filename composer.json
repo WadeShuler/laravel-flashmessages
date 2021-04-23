@@ -1,0 +1,65 @@
+{
+    "name": "wadeshuler/laravel-flashmessages",
+    "description": "Laravel flash messages",
+    "keywords": [
+        "laravel",
+        "flash",
+        "messages",
+        "flashmessages",
+        "alert",
+        "alerts",
+        "bootstrap"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/WadeShuler/laravel-flashmessages",
+    "support": {
+        "issues": "https://github.com/WadeShuler/laravel-flashmessages/issues",
+        "source": "https://github.com/laravel/laravel-flashmessages"
+    },
+    "authors": [
+        {
+            "name": "Wade Shuler",
+            "email": "wadeshuler@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2|^8.0",
+        "illuminate/support": "^6.9|^7.0|^8.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.4",
+        "orchestra/testbench": "^4.0|^5.0|^6.17",
+        "phpunit/phpunit": "^8.5|^9.5"
+    },
+    "autoload": {
+        "files": [
+            "src/flash-messages-helpers.php"
+        ],
+        "psr-4": {
+            "wadeshuler\\FlashMessages\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "wadeshuler\\FlashMessages\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "wadeshuler\\FlashMessages\\FlashMessagesProvider"
+            ],
+            "aliases": {
+                "FlashMessages": "wadeshuler\\FlashMessages\\Facades\\FlashMessages"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
