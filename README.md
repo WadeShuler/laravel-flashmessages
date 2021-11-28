@@ -54,7 +54,7 @@ Maybe there is a better way to handle this? I am fairly new to Laravel, so I am 
 To install this package, run:
 
 ```
-composer install wadeshuler/laravel-flashmessages
+composer require wadeshuler/laravel-flashmessages
 ```
 
 Place the code for the container component where you want the flash messages to appear.
