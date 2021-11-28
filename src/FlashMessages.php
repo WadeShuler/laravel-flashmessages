@@ -29,6 +29,28 @@ class FlashMessages
     }
 
     /**
+     * Add a flash message to the session for immediate use.
+     *
+     * @param string $type The type of flash message (success, error, warning, info, etc.)
+     * @param string $message The text of the actual message itself
+     * @param array $config The config array to customize the flash message settings (optional)
+     *
+     * @return void
+     */
+    public function addFlashMessageNow(string $type, string $message, array $config = [])
+    {
+        $oldBag = $this->getFlashMessages();
+
+        $oldBag[] = [
+            'type' => $type,
+            'message' => $message,
+            'config' => $config,
+        ];
+
+        request()->session()->now($this->bagName, $oldBag);
+    }
+
+    /**
      * Whether or not there are flash messages
      *
      * @return bool
@@ -45,6 +67,6 @@ class FlashMessages
      */
     public function getFlashMessages()
     {
-        return request()->session()->has($this->bagName) ? request()->session()->get($this->bagName) : [];
+        return $this->hasFlashMessages() ? request()->session()->get($this->bagName) : [];
     }
 }
