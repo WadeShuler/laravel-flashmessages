@@ -232,6 +232,31 @@ If you need to pass user data into the message, here is how you can safely do it
 
 ## Advanced Usage
 
+### Add Flash Message Now
+
+In addition to the `addFlashMessage()`, there is also `addFlashMessageNow()` to render messages for immediate use. It
+utilizes Laravel's `request()->session()->now()`, which allows you to add a flash message and display it on the same
+page load.
+
+I added this because I wanted to convert the built in status messages to nice Bootstrap alerts (flash messages). For
+example: When email verification is enabled, Laravel returns a `verification-link-sent` status. This isn't very easy
+to work with. At this point, the page has already loaded and or been redirected to wherever it's supposed to go. Since
+the page has already loaded, if we use `addFlashMessage()` at this point, the flash message will display on this page
+load AND the next. That is a problem, the message shouldn't be shown on the next subsequent page.
+
+To solve this, we can use `addFlashMessageNow()` instead:
+
+```php
+\FlashMessages::addFlashMessageNow(
+    'success',
+    'A verification link has been emailed to you!',
+);
+```
+
+I wrote a middleware that simply detects all of the generic Laravel and Fortify "statuses" and converts them to flash
+messages, with two separate arrays for regular flash messages, and ones that should be called with "now". I plan on
+adding it to this package later.
+
 ### Helper Functions
 
 There is 1 app level helper function to determine if there are any flash messages. This is useful if you have wrapped the call to the component with a div and it is creating spacing issues.
